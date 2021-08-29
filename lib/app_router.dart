@@ -29,18 +29,18 @@ class AppRouter{
           ),
         );
 
-      // case CharacterDetails:
-      //   final character = settings.arguments as Character;
-      //
-      //   return MaterialPageRoute(
-      //     builder: (_) => BlocProvider(
-      //       create: (BuildContext context) =>
-      //           CharactersCubit(charactersRepository),
-      //       child: CharacterDetails(
-      //         character: character,
-      //       ),
-      //     ),
-      //   );
+      case CharacterDetailsScreen:
+        final character = settings.arguments as Character;
+
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (BuildContext context) =>
+                CharactersCubit(charactersRepository),
+            child: CharacterDetails(
+              character: character,
+            ),
+          ),
+        );
     }
   }
 }

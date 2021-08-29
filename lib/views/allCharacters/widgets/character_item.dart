@@ -1,4 +1,5 @@
 
+import 'package:breaking_bad_by_bloc/consts/strings.dart';
 import 'package:breaking_bad_by_bloc/views/allCharacters/cubit/cubit.dart';
 import 'package:breaking_bad_by_bloc/views/allCharacters/models/character.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../characters_details.dart';
 
 class CharacterItem extends StatelessWidget {
-  final character;
+  final Character character;
 
   const CharacterItem({ this.character}) ;
 
@@ -22,7 +23,7 @@ class CharacterItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       child: InkWell(
-        // onTap: () => Navigator.pushNamed(context, CharacterDetails , arguments: character),
+        onTap: () => Navigator.pushNamed(context, CharacterDetailsScreen , arguments: character),
         child: GridTile(
           child: Hero(
             tag: character.charId,
@@ -36,7 +37,7 @@ class CharacterItem extends StatelessWidget {
                 image: character.image,
                 fit: BoxFit.cover,
               )
-                  : Image.asset('assets/images/placeholder.jpg'),
+                  : Image.asset('assets/images/no_internet.png'),
             ),
           ),
           footer: Container(

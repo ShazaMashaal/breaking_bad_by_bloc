@@ -71,7 +71,7 @@ class _CharactersListState extends State<CharactersList> {
    @override
    void initState() {
      super.initState();
-     BlocProvider.of<CharactersCubit>(context).getAllCharacters();
+   allCharacters=  BlocProvider.of<CharactersCubit>(context).getAllCharacters();
    }
   @override
   Widget build(BuildContext context) {
@@ -80,6 +80,7 @@ class _CharactersListState extends State<CharactersList> {
         backgroundColor: Colors.deepOrangeAccent[100],
         title: Text("Characters",style: TextStyle(color: Colors.grey[800]),),
       ),
+      body: buildBlocWidget(),
     );
   }
 }
