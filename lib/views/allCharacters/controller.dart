@@ -1,26 +1,25 @@
 import 'package:breaking_bad_by_bloc/consts/strings.dart';
 import 'package:dio/dio.dart';
 
-import 'models/character.dart';
+class CharactersWebServices {
+   Dio dio;
 
-class CharacterController {
-  Dio dio;
-
-  characterWebService() {
+  CharactersWebServices() {
     BaseOptions options = BaseOptions(
       baseUrl: baseUrl,
       receiveDataWhenStatusError: true,
-      connectTimeout: 20 * 1000,
+      connectTimeout: 20 * 1000, // 60 seconds,
       receiveTimeout: 20 * 1000,
     );
+
     dio = Dio(options);
   }
 
-  Future<List<Character>> getAllCharacters() async {
+  Future<List<dynamic>> getAllCharacters() async {
     try {
       Response response = await dio.get('characters');
       print(response.data.toString());
-      return (response.data.map((char)=> Character.fromJson(char)).toList());
+      return response.data;
     } catch (e) {
       print(e.toString());
       return [];

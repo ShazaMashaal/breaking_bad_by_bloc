@@ -1,3 +1,3 @@
 final baseUrl='https://www.breakingbadapi.com/api/';
-const allCharacters= '/';
+const charactersScreen= '/';
 const characterDetails='/character_details';
